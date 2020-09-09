@@ -1,0 +1,396 @@
+% Options for packages loaded elsewhere
+\PassOptionsToPackage{unicode}{hyperref}
+\PassOptionsToPackage{hyphens}{url}
+%
+\documentclass[
+]{article}
+\usepackage{lmodern}
+\usepackage{amssymb,amsmath}
+\usepackage{ifxetex,ifluatex}
+\ifnum 0\ifxetex 1\fi\ifluatex 1\fi=0 % if pdftex
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage{textcomp} % provide euro and other symbols
+\else % if luatex or xetex
+  \usepackage{unicode-math}
+  \defaultfontfeatures{Scale=MatchLowercase}
+  \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
+\fi
+% Use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\IfFileExists{microtype.sty}{% use microtype if available
+  \usepackage[]{microtype}
+  \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\makeatletter
+\@ifundefined{KOMAClassName}{% if non-KOMA class
+  \IfFileExists{parskip.sty}{%
+    \usepackage{parskip}
+  }{% else
+    \setlength{\parindent}{0pt}
+    \setlength{\parskip}{6pt plus 2pt minus 1pt}}
+}{% if KOMA class
+  \KOMAoptions{parskip=half}}
+\makeatother
+\usepackage{xcolor}
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
+\IfFileExists{bookmark.sty}{\usepackage{bookmark}}{\usepackage{hyperref}}
+\hypersetup{
+  pdftitle={FGV - Preços},
+  pdfauthor={Lucas M. Oliveira},
+  hidelinks,
+  pdfcreator={LaTeX via pandoc}}
+\urlstyle{same} % disable monospaced font for URLs
+\usepackage[margin=1in]{geometry}
+\usepackage{color}
+\usepackage{fancyvrb}
+\newcommand{\VerbBar}{|}
+\newcommand{\VERB}{\Verb[commandchars=\\\{\}]}
+\DefineVerbatimEnvironment{Highlighting}{Verbatim}{commandchars=\\\{\}}
+% Add ',fontsize=\small' for more characters per line
+\usepackage{framed}
+\definecolor{shadecolor}{RGB}{248,248,248}
+\newenvironment{Shaded}{\begin{snugshade}}{\end{snugshade}}
+\newcommand{\AlertTok}[1]{\textcolor[rgb]{0.94,0.16,0.16}{#1}}
+\newcommand{\AnnotationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\AttributeTok}[1]{\textcolor[rgb]{0.77,0.63,0.00}{#1}}
+\newcommand{\BaseNTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\BuiltInTok}[1]{#1}
+\newcommand{\CharTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\CommentTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{#1}}}
+\newcommand{\CommentVarTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\ConstantTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\ControlFlowTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\DataTypeTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{#1}}
+\newcommand{\DecValTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\DocumentationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\ErrorTok}[1]{\textcolor[rgb]{0.64,0.00,0.00}{\textbf{#1}}}
+\newcommand{\ExtensionTok}[1]{#1}
+\newcommand{\FloatTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\FunctionTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\ImportTok}[1]{#1}
+\newcommand{\InformationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\KeywordTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\NormalTok}[1]{#1}
+\newcommand{\OperatorTok}[1]{\textcolor[rgb]{0.81,0.36,0.00}{\textbf{#1}}}
+\newcommand{\OtherTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{#1}}
+\newcommand{\PreprocessorTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{#1}}}
+\newcommand{\RegionMarkerTok}[1]{#1}
+\newcommand{\SpecialCharTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\SpecialStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\StringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\VariableTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\VerbatimStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\WarningTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\usepackage{graphicx}
+\makeatletter
+\def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
+\def\maxheight{\ifdim\Gin@nat@height>\textheight\textheight\else\Gin@nat@height\fi}
+\makeatother
+% Scale images if necessary, so that they will not overflow the page
+% margins by default, and it is still possible to overwrite the defaults
+% using explicit options in \includegraphics[width, height, ...]{}
+\setkeys{Gin}{width=\maxwidth,height=\maxheight,keepaspectratio}
+% Set default figure placement to htbp
+\makeatletter
+\def\fps@figure{htbp}
+\makeatother
+\setlength{\emergencystretch}{3em} % prevent overfull lines
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\setcounter{secnumdepth}{-\maxdimen} % remove section numbering
+
+\title{FGV - Preços}
+\author{Lucas M. Oliveira}
+\date{08/09/2020}
+
+\begin{document}
+\maketitle
+
+\hypertarget{pruxe9-processamento-dos-dados}{%
+\subsection{Pré-processamento dos
+dados}\label{pruxe9-processamento-dos-dados}}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{my\_path\textless{}{-}}\StringTok{ "C:/Users/lucmo/Downloads/FGV\_Iliada/FGV\_PRECOS/"} \CommentTok{\# caminho onde estao os seus arquivos}
+\KeywordTok{setwd}\NormalTok{(my\_path) }\CommentTok{\#set o diretorio }
+\NormalTok{pacman}\OperatorTok{::}\KeywordTok{p\_load}\NormalTok{(}\StringTok{\textquotesingle{}tidyverse\textquotesingle{}}\NormalTok{,}
+               \StringTok{\textquotesingle{}stringr\textquotesingle{}}\NormalTok{,}\StringTok{\textquotesingle{}stringi\textquotesingle{}}\NormalTok{,}
+               \StringTok{\textquotesingle{}magrittr\textquotesingle{}}\NormalTok{) }\CommentTok{\#carregando os pacotes necessarios para manipulacao e Limpreza dos dados}
+\NormalTok{amostra =}\StringTok{ \textquotesingle{}amostra\_pricecollector.csv\textquotesingle{}} \OperatorTok{\%\textgreater{}\%}\StringTok{ }
+\StringTok{                        }\NormalTok{data.table}\OperatorTok{::}\KeywordTok{fread}\NormalTok{()}
+
+\NormalTok{Catalogo =}\StringTok{ \textquotesingle{}Catalogo.xlsx\textquotesingle{}} \OperatorTok{\%\textgreater{}\%}\StringTok{ }
+\StringTok{                    }\NormalTok{readxl}\OperatorTok{::}\KeywordTok{read\_excel}\NormalTok{(}\DataTypeTok{sheet =} \StringTok{"1"}\NormalTok{, }\DataTypeTok{skip =} \DecValTok{3}\NormalTok{) }
+\end{Highlighting}
+\end{Shaded}
+
+Selecionando dez alimentos com letra `C':
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{Catalogo }\OperatorTok{\%\textgreater{}\%}\StringTok{ }\KeywordTok{select}\NormalTok{(}\StringTok{\textasciigrave{}}\DataTypeTok{DESCRIÇAO ITEM}\StringTok{\textasciigrave{}}\NormalTok{) }\OperatorTok{\%\textgreater{}\%}\StringTok{  }\KeywordTok{rename}\NormalTok{(}\DataTypeTok{DI =} \StringTok{\textasciigrave{}}\DataTypeTok{DESCRIÇAO ITEM}\StringTok{\textasciigrave{}}\NormalTok{) }\OperatorTok{\%\textgreater{}\%}
+\StringTok{ }\KeywordTok{mutate}\NormalTok{(}\DataTypeTok{DI =} \KeywordTok{str\_replace\_all}\NormalTok{(DI, }\StringTok{"{-}"}\NormalTok{,}\StringTok{" "}\NormalTok{),}
+\DataTypeTok{Letra =} \KeywordTok{str\_sub}\NormalTok{(DI, }\DataTypeTok{end =} \DecValTok{1}\NormalTok{),}
+\DataTypeTok{Letra =} \KeywordTok{str\_to\_upper}\NormalTok{(Letra)) }\OperatorTok{\%\textgreater{}\%}\StringTok{ }\KeywordTok{filter}\NormalTok{(Letra}\OperatorTok{==}\StringTok{\textquotesingle{}C\textquotesingle{}}\NormalTok{) }\OperatorTok{\%\textgreater{}\%}
+\KeywordTok{slice}\NormalTok{(}\DecValTok{56}\OperatorTok{:}\DecValTok{65}\NormalTok{) }
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## # A tibble: 10 x 2
+##    DI                                               Letra
+##    <chr>                                            <chr>
+##  1 COENTRO                                          C    
+##  2 COLORIFICO                                       C    
+##  3 COMINHO EM PO                                    C    
+##  4 CONDIMENTO PREPARADO (CATCHUP), A BASE DE TOMATE C    
+##  5 CORAÇAO BOVINO                                   C    
+##  6 COUVE                                            C    
+##  7 COUVE FLOR                                       C    
+##  8 CRAVO DA INDIA                                   C    
+##  9 CREME DE ARROZ                                   C    
+## 10 CREME DE LEITE                                   C
+\end{verbatim}
+
+Processamentos adicionais
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{amostra }\OperatorTok{\%\textless{}\textgreater{}\%}\StringTok{ }\KeywordTok{mutate}\NormalTok{(}\DataTypeTok{product\_name =}\KeywordTok{str\_to\_upper}\NormalTok{(product\_name),}
+\DataTypeTok{product\_name=} \KeywordTok{stri\_trans\_general}\NormalTok{(product\_name, }\StringTok{"Latin{-}ASCII"}\NormalTok{)) }\CommentTok{\# retirando ç}
+
+
+\NormalTok{amostra\_filtrada =}\StringTok{ }\NormalTok{amostra }\OperatorTok{\%\textgreater{}\%}\StringTok{ }
+\KeywordTok{select}\NormalTok{(product\_id,product\_name,price,website\_id) }\OperatorTok{\%\textgreater{}\%}\StringTok{ }
+\KeywordTok{mutate}\NormalTok{(}\DataTypeTok{Letra =}\KeywordTok{str\_sub}\NormalTok{(product\_name,}\DataTypeTok{end=}\DecValTok{1}\NormalTok{)) }\OperatorTok{\%\textgreater{}\%}
+\KeywordTok{filter}\NormalTok{(Letra}\OperatorTok{\%in\%}\KeywordTok{c}\NormalTok{(}\StringTok{\textquotesingle{}C\textquotesingle{}}\NormalTok{,}\StringTok{\textquotesingle{}K\textquotesingle{}}\NormalTok{))  }\CommentTok{\# Por causa de Ketchup}
+\end{Highlighting}
+\end{Shaded}
+
+Separando o nome do produto na amostra em um vetor:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{amostra\_filtrada }\OperatorTok{\%\textless{}\textgreater{}\%}\StringTok{ }\KeywordTok{mutate}\NormalTok{( }\DataTypeTok{pd =}\KeywordTok{str\_split}\NormalTok{(product\_name,}\StringTok{" "}\NormalTok{ )) }\CommentTok{\# }
+
+\CommentTok{\#}
+\NormalTok{Catalogo\_filtrado =}\StringTok{ }
+\StringTok{    }\NormalTok{Catalogo }\OperatorTok{\%\textgreater{}\%}\StringTok{ }\KeywordTok{select}\NormalTok{(}\StringTok{\textasciigrave{}}\DataTypeTok{DESCRIÇAO ITEM}\StringTok{\textasciigrave{}}\NormalTok{,QTDE,U.M.) }\OperatorTok{\%\textgreater{}\%}\StringTok{  }\KeywordTok{rename}\NormalTok{(}\DataTypeTok{DI =} \StringTok{\textasciigrave{}}\DataTypeTok{DESCRIÇAO ITEM}\StringTok{\textasciigrave{}}\NormalTok{) }\OperatorTok{\%\textgreater{}\%}
+\StringTok{  }\KeywordTok{mutate}\NormalTok{(}\DataTypeTok{DI =} \KeywordTok{str\_replace\_all}\NormalTok{(DI, }\StringTok{"{-}"}\NormalTok{,}\StringTok{" "}\NormalTok{),}
+        \DataTypeTok{Letra =} \KeywordTok{str\_sub}\NormalTok{(DI, }\DataTypeTok{end =} \DecValTok{1}\NormalTok{),}
+         \DataTypeTok{Letra =} \KeywordTok{str\_to\_upper}\NormalTok{(Letra),}
+         \DataTypeTok{DI =} \KeywordTok{stri\_trans\_general}\NormalTok{(DI, }\StringTok{"Latin{-}ASCII"}\NormalTok{)) }\OperatorTok{\%\textgreater{}\%}\StringTok{ }\KeywordTok{filter}\NormalTok{(Letra}\OperatorTok{==}\StringTok{\textquotesingle{}C\textquotesingle{}}\NormalTok{) }\OperatorTok{\%\textgreater{}\%}\StringTok{ }
+\StringTok{  }\KeywordTok{slice}\NormalTok{(}\DecValTok{56}\OperatorTok{:}\DecValTok{65}\NormalTok{) }\CommentTok{\# selecionando os ultimos dez alimentos}
+\end{Highlighting}
+\end{Shaded}
+
+Trocando o nome na amostra de Catchup
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{  Catalogo\_filtrado }\OperatorTok{\%\textless{}\textgreater{}\%}\StringTok{ }
+\StringTok{        }\KeywordTok{mutate}\NormalTok{(}\DataTypeTok{DI=}\KeywordTok{if\_else}\NormalTok{(DI}\OperatorTok{==}\StringTok{\textquotesingle{}CONDIMENTO PREPARADO (CATCHUP), A BASE DE TOMATE\textquotesingle{}}\NormalTok{,}
+                          \StringTok{\textquotesingle{}CATCHUP\textquotesingle{}}\NormalTok{,DI))}\OperatorTok{\%\textgreater{}\%}
+\StringTok{      }\KeywordTok{add\_row}\NormalTok{( }\DataTypeTok{DI=} \StringTok{\textquotesingle{}KETCHUP\textquotesingle{}}\NormalTok{,}
+        \DataTypeTok{QTDE =}\NormalTok{ Catalogo\_filtrado}\OperatorTok{$}\NormalTok{QTDE[}\DecValTok{4}\NormalTok{],}
+        \DataTypeTok{U.M.=}\NormalTok{Catalogo\_filtrado}\OperatorTok{$}\NormalTok{U.M.[}\DecValTok{4}\NormalTok{], }
+        \DataTypeTok{Letra=}\NormalTok{Catalogo\_filtrado}\OperatorTok{$}\NormalTok{Letra[}\DecValTok{4}\NormalTok{]) }\OperatorTok{\%\textgreater{}\%}\StringTok{ }
+\StringTok{        }\KeywordTok{mutate}\NormalTok{(}\DataTypeTok{match =}\DecValTok{0}\NormalTok{)}\CommentTok{\# Buscando exatamente por CATCHUP}
+\end{Highlighting}
+\end{Shaded}
+
+Extraindo o comprimento de cada item no catálogo:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+  \ControlFlowTok{for}\NormalTok{ (i }\ControlFlowTok{in} \DecValTok{1}\OperatorTok{:}\KeywordTok{dim}\NormalTok{(Catalogo\_filtrado)[}\DecValTok{1}\NormalTok{]) \{}
+     
+\NormalTok{     Catalogo\_filtrado}\OperatorTok{$}\NormalTok{match[i]\textless{}{-}}\KeywordTok{lapply}\NormalTok{(}\KeywordTok{str\_split}\NormalTok{(Catalogo\_filtrado}\OperatorTok{$}\NormalTok{DI, }\StringTok{" "}\NormalTok{), length)[[i]]}
+\NormalTok{   \}}
+  \CommentTok{\#{-}{-}{-}{-}{-}{-}{-}{-}{-}\# }
+  
+\NormalTok{    Catalogo\_filtrado }\OperatorTok{\%\textless{}\textgreater{}\%}\StringTok{ }\KeywordTok{mutate}\NormalTok{(}\DataTypeTok{DI\_SEP =}\KeywordTok{str\_split}\NormalTok{(DI, }\StringTok{" "}\NormalTok{))}
+  
+
+\NormalTok{      amostra\_filtrada }\OperatorTok{\%\textless{}\textgreater{}\%}\StringTok{ }\KeywordTok{mutate}\NormalTok{(}\DataTypeTok{DI=}\OtherTok{NA}\NormalTok{)}
+
+  \StringTok{\textasciigrave{}}\DataTypeTok{\%!in\%}\StringTok{\textasciigrave{}}\NormalTok{ =}\StringTok{ }\KeywordTok{Negate}\NormalTok{(}\StringTok{\textasciigrave{}}\DataTypeTok{\%in\%}\StringTok{\textasciigrave{}}\NormalTok{) }\CommentTok{\#def operador de negacao}
+
+  \ControlFlowTok{for}\NormalTok{(i }\ControlFlowTok{in} \DecValTok{1}\OperatorTok{:}\KeywordTok{length}\NormalTok{(amostra\_filtrada}\OperatorTok{$}\NormalTok{pd))\{ }
+    
+      \ControlFlowTok{for}\NormalTok{ (j }\ControlFlowTok{in} \DecValTok{1}\OperatorTok{:}\KeywordTok{dim}\NormalTok{(Catalogo\_filtrado)[}\DecValTok{1}\NormalTok{]) \{}
+      
+          \CommentTok{\# if(!is.na(table(unique(amostra\_filtrada$pd[[i]])\%in\%Catalogo\_filtrado$DI\_SEP[[j]])["TRUE"][[1]]==}
+          \CommentTok{\#                             Catalogo\_filtrado$match[j]))\{}
+        
+        \ControlFlowTok{if}\NormalTok{(amostra\_filtrada}\OperatorTok{$}\NormalTok{pd[[i]][}\DecValTok{1}\NormalTok{] }\OperatorTok{==}\StringTok{ }\NormalTok{Catalogo\_filtrado}\OperatorTok{$}\NormalTok{DI\_SEP[[j]][}\DecValTok{1}\NormalTok{])\{   }
+        
+               \ControlFlowTok{if}\NormalTok{(}\KeywordTok{table}\NormalTok{(}\KeywordTok{unique}\NormalTok{(amostra\_filtrada}\OperatorTok{$}\NormalTok{pd[[i]])}\OperatorTok{\%in\%}\NormalTok{Catalogo\_filtrado}\OperatorTok{$}\NormalTok{DI\_SEP[[j]])[}\StringTok{"TRUE"}\NormalTok{][[}\DecValTok{1}\NormalTok{]]}\OperatorTok{==}
+\StringTok{             }\NormalTok{Catalogo\_filtrado}\OperatorTok{$}\NormalTok{match[j])\{}
+\NormalTok{                       amostra\_filtrada}\OperatorTok{$}\NormalTok{DI[i] =}\StringTok{  }\NormalTok{Catalogo\_filtrado}\OperatorTok{$}\NormalTok{DI[j]\}}
+                \CommentTok{\# \}else\{}
+                \CommentTok{\#     amostra\_filtrada$DI[i] = NA  }
+                \CommentTok{\#        \}}
+      
+\NormalTok{         \}}
+    
+\NormalTok{            \}}
+\NormalTok{              \}}
+\end{Highlighting}
+\end{Shaded}
+
+Obtendo unidades e Preços
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{   amostra\_filtrada }\OperatorTok{\%\textless{}\textgreater{}\%}\StringTok{ }\KeywordTok{drop\_na}\NormalTok{() }\OperatorTok{\%\textgreater{}\%}\StringTok{ }\KeywordTok{mutate}\NormalTok{(}\DataTypeTok{pd\_name2 =} \KeywordTok{str\_replace\_all}\NormalTok{(product\_name,}\DataTypeTok{pattern =} \StringTok{" "}\NormalTok{, }\DataTypeTok{replacement =} \StringTok{""}\NormalTok{))}
+  
+  \CommentTok{\#extraindo o peso/volume}
+  
+\NormalTok{  grama =}\KeywordTok{bind\_cols}\NormalTok{(amostra\_filtrada}\OperatorTok{$}\NormalTok{product\_id, }\KeywordTok{str\_extract}\NormalTok{(amostra\_filtrada}\OperatorTok{$}\NormalTok{pd\_name2,}\StringTok{"}\CharTok{\textbackslash{}\textbackslash{}}\StringTok{d+G"}\NormalTok{))  }\OperatorTok{\%\textgreater{}\%}\StringTok{ }\KeywordTok{drop\_na}\NormalTok{()}
+\NormalTok{  ml =}\KeywordTok{bind\_cols}\NormalTok{(amostra\_filtrada}\OperatorTok{$}\NormalTok{product\_id, }\KeywordTok{str\_extract}\NormalTok{(amostra\_filtrada}\OperatorTok{$}\NormalTok{pd\_name2,}\StringTok{"}\CharTok{\textbackslash{}\textbackslash{}}\StringTok{d+ML"}\NormalTok{)) }\OperatorTok{\%\textgreater{}\%}\StringTok{ }\KeywordTok{drop\_na}\NormalTok{()}
+\NormalTok{  kilo =}\KeywordTok{bind\_cols}\NormalTok{(amostra\_filtrada}\OperatorTok{$}\NormalTok{product\_id, }\KeywordTok{str\_extract}\NormalTok{(amostra\_filtrada}\OperatorTok{$}\NormalTok{pd\_name2,}\StringTok{"}\CharTok{\textbackslash{}\textbackslash{}}\StringTok{d+KG"}\NormalTok{)) }\OperatorTok{\%\textgreater{}\%}\StringTok{ }\KeywordTok{drop\_na}\NormalTok{()}
+\NormalTok{  unidade =}\KeywordTok{bind\_cols}\NormalTok{(amostra\_filtrada}\OperatorTok{$}\NormalTok{product\_id, }\KeywordTok{str\_extract}\NormalTok{(amostra\_filtrada}\OperatorTok{$}\NormalTok{pd\_name2,}\StringTok{"UNID"}\NormalTok{)) }\OperatorTok{\%\textgreater{}\%}\StringTok{ }\KeywordTok{drop\_na}\NormalTok{()}
+\NormalTok{  litro =}\StringTok{ }\KeywordTok{bind\_cols}\NormalTok{(amostra\_filtrada}\OperatorTok{$}\NormalTok{product\_id, }\KeywordTok{str\_extract}\NormalTok{(amostra\_filtrada}\OperatorTok{$}\NormalTok{pd\_name2,}\StringTok{"}\CharTok{\textbackslash{}\textbackslash{}}\StringTok{d+L"}\NormalTok{)) }\OperatorTok{\%\textgreater{}\%}\StringTok{ }\KeywordTok{drop\_na}\NormalTok{()}
+  
+  \CommentTok{\#to\_find\textless{}{-}  c("\textbackslash{}\textbackslash{}d+G","\textbackslash{}\textbackslash{}d+ML","\textbackslash{}\textbackslash{}d+KG","\textbackslash{}\textbackslash{}d+L","UNIDADE")}
+  
+  \KeywordTok{colnames}\NormalTok{(grama)\textless{}{-}}\KeywordTok{c}\NormalTok{(}\StringTok{"product\_id"}\NormalTok{,}\StringTok{"qtd"}\NormalTok{)}
+  \KeywordTok{colnames}\NormalTok{(ml)\textless{}{-}}\KeywordTok{c}\NormalTok{(}\StringTok{"product\_id"}\NormalTok{,}\StringTok{"qtd"}\NormalTok{)}
+  \KeywordTok{colnames}\NormalTok{(kilo)\textless{}{-}}\KeywordTok{c}\NormalTok{(}\StringTok{"product\_id"}\NormalTok{,}\StringTok{"qtd"}\NormalTok{)}
+  \KeywordTok{colnames}\NormalTok{(unidade)\textless{}{-}}\KeywordTok{c}\NormalTok{(}\StringTok{"product\_id"}\NormalTok{,}\StringTok{"qtd"}\NormalTok{)}
+  \KeywordTok{colnames}\NormalTok{(litro)\textless{}{-}}\KeywordTok{c}\NormalTok{(}\StringTok{"product\_id"}\NormalTok{,}\StringTok{"qtd"}\NormalTok{)}
+  
+\NormalTok{ quant\_amostra =}\StringTok{  }\KeywordTok{rbind}\NormalTok{(grama,ml,kilo,unidade,litro)}
+  
+\NormalTok{ amostra\_filtrada=}\StringTok{ }\NormalTok{quant\_amostra }\OperatorTok{\%\textgreater{}\%}\StringTok{ }\KeywordTok{inner\_join}\NormalTok{(amostra\_filtrada,}\DataTypeTok{by =} \StringTok{\textquotesingle{}product\_id\textquotesingle{}}\NormalTok{) }
+  
+\NormalTok{ UM\_amostra =}\StringTok{  }\KeywordTok{str\_extract}\NormalTok{(amostra\_filtrada}\OperatorTok{$}\NormalTok{qtd,}\StringTok{"G|ML|L|UNID|KG"}\NormalTok{) }\CommentTok{\# UM da amostra}
+\NormalTok{ Qtd\_amostra =}\StringTok{  }\KeywordTok{str\_extract}\NormalTok{(amostra\_filtrada}\OperatorTok{$}\NormalTok{qtd,}\StringTok{\textquotesingle{}[0{-}9]+\textquotesingle{}}\NormalTok{)}
+ 
+\NormalTok{Cotacao =}\StringTok{ }
+\StringTok{  }\NormalTok{amostra\_filtrada }\OperatorTok{\%\textgreater{}\%}\StringTok{ }
+\StringTok{                        }\KeywordTok{inner\_join}\NormalTok{(Catalogo\_filtrado,}\DataTypeTok{by=}\StringTok{\textquotesingle{}DI\textquotesingle{}}\NormalTok{) }\OperatorTok{\%\textgreater{}\%}
+\StringTok{                        }\KeywordTok{mutate}\NormalTok{(}\DataTypeTok{QTDE =} \KeywordTok{if\_else}\NormalTok{(QTDE }\OperatorTok{\%in\%}\KeywordTok{c}\NormalTok{(}\OtherTok{NA}\NormalTok{),}\DecValTok{1}\NormalTok{,QTDE),}
+                               \DataTypeTok{price =} \KeywordTok{as.numeric}\NormalTok{(}\KeywordTok{str\_replace}\NormalTok{(price,}\StringTok{","}\NormalTok{,}\StringTok{"."}\NormalTok{))) }\OperatorTok{\%\textgreater{}\%}
+\StringTok{                        }\KeywordTok{select}\NormalTok{(DI,qtd,QTDE,U.M.,price,website\_id)   }\OperatorTok{\%\textgreater{}\%}\StringTok{ }\KeywordTok{cbind}\NormalTok{(UM\_amostra,Qtd\_amostra) }
+                        
+                         
+\NormalTok{Cotacao[,}\DecValTok{7}\NormalTok{] \textless{}{-}}\StringTok{ }\KeywordTok{sapply}\NormalTok{(Cotacao[,}\DecValTok{7}\NormalTok{], as.character) }\CommentTok{\# convertendo U.M. da amostra em caracter}
+\NormalTok{Cotacao[,}\DecValTok{8}\NormalTok{] \textless{}{-}}\StringTok{ }\KeywordTok{sapply}\NormalTok{(Cotacao[,}\DecValTok{8}\NormalTok{], as.character)}
+\NormalTok{Cotacao[,}\DecValTok{8}\NormalTok{] \textless{}{-}}\StringTok{ }\KeywordTok{sapply}\NormalTok{(Cotacao[,}\DecValTok{8}\NormalTok{], as.numeric)}
+\end{Highlighting}
+\end{Shaded}
+
+OBS Se a varíavel UM no catálogo for igual à Molho prevalece o U.M. da
+amostra
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{  Cotacao }\OperatorTok{\%\textless{}\textgreater{}\%}\StringTok{ }\KeywordTok{mutate}\NormalTok{(}
+  \DataTypeTok{U.M. =} \KeywordTok{if\_else}\NormalTok{(U.M.}\OperatorTok{==}\StringTok{"MOLHO"}\NormalTok{,UM\_amostra,U.M.),}
+  \DataTypeTok{Qtd\_amostra =} \KeywordTok{if\_else}\NormalTok{( U.M.}\OperatorTok{==}\StringTok{"UNID"} \OperatorTok{\&}\StringTok{ }\NormalTok{UM\_amostra }\OperatorTok{==}\StringTok{"UNID"}\NormalTok{,}\DecValTok{1}\NormalTok{,Qtd\_amostra),}
+  \DataTypeTok{Qtd\_amostra =} \KeywordTok{if\_else}\NormalTok{( U.M.}\OperatorTok{==}\StringTok{"KG"} \OperatorTok{\&}\StringTok{ }\NormalTok{UM\_amostra }\OperatorTok{==}\StringTok{"UNID"}\NormalTok{,}\DecValTok{1}\NormalTok{,Qtd\_amostra),}
+  \DataTypeTok{Preco\_UM =}\NormalTok{(}\KeywordTok{if\_else}\NormalTok{(UM\_amostra }\OperatorTok{==}\StringTok{ }\NormalTok{U.M., (price}\OperatorTok{/}\NormalTok{Qtd\_amostra),}\DecValTok{0}\NormalTok{)),}
+  \DataTypeTok{Preco\_UM =} \KeywordTok{if\_else}\NormalTok{( U.M.}\OperatorTok{==}\StringTok{"KG"} \OperatorTok{\&}\StringTok{ }\NormalTok{UM\_amostra }\OperatorTok{==}\StringTok{"G"}\NormalTok{,}
+\NormalTok{                      price}\OperatorTok{/}\StringTok{ }\NormalTok{(Qtd\_amostra}\OperatorTok{*}\FloatTok{0.001}\NormalTok{),Preco\_UM),}
+  \DataTypeTok{Preco\_UM=}\KeywordTok{round}\NormalTok{(Preco\_UM,}\DataTypeTok{digits=}\DecValTok{2}\NormalTok{),}
+  \DataTypeTok{DI =} \KeywordTok{fct\_recode}\NormalTok{(DI, }\DataTypeTok{CATCHUP =}\StringTok{"KETCHUP"}\NormalTok{), }\CommentTok{\# Colocando os Catchups em um só}
+  \DataTypeTok{Cotacao =}\NormalTok{ QTDE}\OperatorTok{*}\NormalTok{price)  }
+  
+\NormalTok{  Cotacao }\OperatorTok{\%\textgreater{}\%}\StringTok{ }\KeywordTok{group\_by}\NormalTok{(DI) }\OperatorTok{\%\textgreater{}\%}\StringTok{ }\KeywordTok{summarise}\NormalTok{(}\DataTypeTok{n=}\KeywordTok{n}\NormalTok{()) }\OperatorTok{\%\textgreater{}\%}\StringTok{ }\KeywordTok{arrange}\NormalTok{(}\KeywordTok{desc}\NormalTok{(n))  }\CommentTok{\# QTD de Itens}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## # A tibble: 10 x 2
+##    DI                 n
+##    <fct>          <int>
+##  1 CATCHUP          114
+##  2 CREME DE LEITE   111
+##  3 COUVE             42
+##  4 COUVE FLOR        19
+##  5 COENTRO           17
+##  6 COLORIFICO        12
+##  7 CRAVO DA INDIA    10
+##  8 COMINHO EM PO      6
+##  9 CORACAO BOVINO     3
+## 10 CREME DE ARROZ     2
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{  Cotacao }\OperatorTok{\%\textgreater{}\%}\StringTok{ }\KeywordTok{group\_by}\NormalTok{(DI,qtd,website\_id) }\OperatorTok{\%\textgreater{}\%}\StringTok{ }\KeywordTok{arrange}\NormalTok{(DI) }\OperatorTok{\%\textgreater{}\%}\StringTok{ }\KeywordTok{filter}\NormalTok{(Cotacao}\OperatorTok{==}\KeywordTok{min}\NormalTok{(Cotacao)) }\OperatorTok{\%\textgreater{}\%}\StringTok{ }\KeywordTok{View}\NormalTok{()}
+ 
+  \CommentTok{\# }
+\end{Highlighting}
+\end{Shaded}
+
+Gráfico do número de itens encontrados na amostra
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{Cotacao }\OperatorTok{\%\textgreater{}\%}\StringTok{ }\KeywordTok{group\_by}\NormalTok{(DI) }\OperatorTok{\%\textgreater{}\%}\StringTok{ }\KeywordTok{summarise}\NormalTok{(}\DataTypeTok{n=}\KeywordTok{n}\NormalTok{()) }\OperatorTok{\%\textgreater{}\%}\StringTok{ }\KeywordTok{arrange}\NormalTok{(}\KeywordTok{desc}\NormalTok{(n)) }\OperatorTok{\%\textgreater{}\%}
+\StringTok{    }\KeywordTok{ggplot}\NormalTok{(}\KeywordTok{aes}\NormalTok{(DI,}
+               \KeywordTok{reorder}\NormalTok{(n,n,}
+                       \ControlFlowTok{function}\NormalTok{(x)}\OperatorTok{{-}}\KeywordTok{length}\NormalTok{(x))}
+               
+\NormalTok{               ,}\DataTypeTok{fill=}\NormalTok{n))}\OperatorTok{+}\KeywordTok{geom\_bar}\NormalTok{(}\DataTypeTok{stat =} \StringTok{"identity"}\NormalTok{)}\OperatorTok{+}\StringTok{ }
+\StringTok{    }\KeywordTok{scale\_fill\_continuous}\NormalTok{(}\DataTypeTok{type =} \StringTok{"viridis"}\NormalTok{)}\OperatorTok{+}\KeywordTok{theme\_bw}\NormalTok{() }\OperatorTok{+}
+\StringTok{    }\KeywordTok{theme}\NormalTok{(}\DataTypeTok{axis.text.x =} \KeywordTok{element\_text}\NormalTok{(}\DataTypeTok{angle =} \DecValTok{90}\NormalTok{),}\DataTypeTok{legend.position =} \StringTok{"none"}\NormalTok{) }\OperatorTok{+}\KeywordTok{geom\_text}\NormalTok{(}
+      \KeywordTok{aes}\NormalTok{(}\DataTypeTok{label =}\NormalTok{ n, }\DataTypeTok{n =}\NormalTok{ n }\OperatorTok{+}\StringTok{ }\FloatTok{0.05}\NormalTok{),}
+      \DataTypeTok{position =} \KeywordTok{position\_dodge}\NormalTok{(}\FloatTok{0.9}\NormalTok{),}
+      \DataTypeTok{vjust =} \DecValTok{0}
+\NormalTok{    )}\OperatorTok{+}\KeywordTok{xlab}\NormalTok{(}\StringTok{\textquotesingle{}\textquotesingle{}}\NormalTok{)}\OperatorTok{+}\StringTok{ }
+\StringTok{    }\KeywordTok{ylab}\NormalTok{(}\StringTok{\textquotesingle{}Match na Amostra\textquotesingle{}}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{FGV-Lucas_files/figure-latex/unnamed-chunk-9-1.pdf}
+
+Menores valores por item (desconsiderando a quantidade)
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{ Cotacao }\OperatorTok{\%\textgreater{}\%}\StringTok{ }\KeywordTok{group\_by}\NormalTok{(DI) }\OperatorTok{\%\textgreater{}\%}\StringTok{ }\KeywordTok{summarise}\NormalTok{(}\DataTypeTok{menor\_preco=}\KeywordTok{min}\NormalTok{(price)) }\OperatorTok{\%\textgreater{}\%}\StringTok{ }\KeywordTok{arrange}\NormalTok{(}\KeywordTok{desc}\NormalTok{(menor\_preco) ) }\OperatorTok{\%\textgreater{}\%}
+\StringTok{     }\KeywordTok{head}\NormalTok{()}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## # A tibble: 6 x 2
+##   DI             menor_preco
+##   <fct>                <dbl>
+## 1 CORACAO BOVINO        5.99
+## 2 CREME DE ARROZ        4.05
+## 3 COUVE FLOR            3.85
+## 4 CATCHUP               3.49
+## 5 CRAVO DA INDIA        3.1 
+## 6 COLORIFICO            2.89
+\end{verbatim}
+
+Tabela dos Preços dos itens agrupados por site e quantidade
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{Cotacao }\OperatorTok{\%\textgreater{}\%}\StringTok{ }\KeywordTok{group\_by}\NormalTok{(DI,website\_id,qtd) }\OperatorTok{\%\textgreater{}\%}\StringTok{ }\KeywordTok{summarise}\NormalTok{(}\DataTypeTok{menor\_preco=}\KeywordTok{min}\NormalTok{(price)) }\OperatorTok{\%\textgreater{}\%}\StringTok{ }
+\StringTok{    }\KeywordTok{arrange}\NormalTok{(}\KeywordTok{desc}\NormalTok{(menor\_preco)) }\OperatorTok{\%\textgreater{}\%}\StringTok{ }\KeywordTok{head}\NormalTok{()}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## # A tibble: 6 x 4
+## # Groups:   DI, website_id [3]
+##   DI             website_id qtd   menor_preco
+##   <fct>               <int> <chr>       <dbl>
+## 1 CATCHUP                 8 350G         23.5
+## 2 CREME DE LEITE          1 490G         22.6
+## 3 CREME DE LEITE          1 500G         22.0
+## 4 CATCHUP                 8 310G         20.0
+## 5 CREME DE LEITE          5 500G         19.9
+## 6 CATCHUP                 8 300G         19.8
+\end{verbatim}
+
+\end{document}
